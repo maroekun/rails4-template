@@ -72,10 +72,10 @@ end
 # copy_file sample
 # copy_file File.expand_path("hoge", File.dirname(__FILE__)), "hoge"
 
-@turbolinks_off = yes?("turbolinks off?") ? true : false
+@turbolinks_off = yes?("turbolinks off?[y/n]") ? true : false
 
 if @turbolinks_off
-  gsub_file 'Gemfile', /^(gem 'turbolinks')$/, '#\1'
+  gsub_file 'Gemfile', /^(gem 'turbolinks')$/, '# \1'
   gsub_file 'app/views/layouts/application.html.erb', /,\s*'data-turbolinks-track' => true/, ''
   gsub_file 'app/assets/javascripts/application.js', %r!^//=.+turbolinks\n!, ''
 end
