@@ -24,14 +24,14 @@ rails new sample -m [http://path/to/template]
 - [x] `README.rdoc` の削除 `README.md` の作成
 - [x] `turbolinks` 無効化(プロンプトで分岐)
 - [x] `bundle install`
-- [ ] `bullet`の設定
-- [ ] `kaminari`の設定
-- [ ] `bootstrap-*`の設定
 
-##### after_bundle内で
+##### bundle installあとで
 
 - [x] `erb -> haml` 変換
 - [x] `kaminari:config` 実行
+- [ ] `wheneverize` 実行
+- [ ] `bootstrap-*`の設定
+- [ ] `bullet`の設定
 
 ### memo
 

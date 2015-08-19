@@ -2,6 +2,18 @@ require 'bundler'
 
 @app_name = app_name
 
+run "rm README.rdoc"
+create_file "README.md" do
+  "# Hello! #{@app_name} application"
+end
+
+@turbolinks_off = yes?("turbolinks off?[y/n]") ? true : false
+if @turbolinks_off
+  gsub_file 'Gemfile', /^(gem 'turbolinks')$/, '# \1'
+  gsub_file 'app/views/layouts/application.html.erb', /,\s*'data-turbolinks-track' => true/, ''
+  gsub_file 'app/assets/javascripts/application.js', %r!^//=.+turbolinks\n!, ''
+end
+
 # pager
 gem 'kaminari'
 
@@ -78,26 +90,15 @@ gem_group :development, :test do
   gem 'brakeman', '~> 3.0.5', require: false
 end
 
-
-@turbolinks_off = yes?("turbolinks off?[y/n]") ? true : false
-
-if @turbolinks_off
-  gsub_file 'Gemfile', /^(gem 'turbolinks')$/, '# \1'
-  gsub_file 'app/views/layouts/application.html.erb', /,\s*'data-turbolinks-track' => true/, ''
-  gsub_file 'app/assets/javascripts/application.js', %r!^//=.+turbolinks\n!, ''
-end
-
 Bundler.with_clean_env do
   run "bundle install --path ./vendor/bundle --jobs=4"
 end
 
-after_bundle do
-  # convert all erb file to haml
-  rake "haml:erb2haml"
-  generate "kaminari:config"
-end
+# convert template
+rake "haml:erb2haml"
 
-run "rm README.rdoc"
-create_file "README.md" do
-  "# Hello! #{@app_name} application"
+# cerate kaminari configration
+generate "kaminari:config"
+
+after_bundle do
 end
