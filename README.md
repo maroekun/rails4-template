@@ -16,13 +16,15 @@ rails new sample -m [http://path/to/template]
 
     rails new -d mysql # で指定すること
 
-### ToDo
+## ToDo
 
 - [ ] gemの選定(`Gemfile`に追記される)
 - [ ] 用途をコメント入れる
 - [x] `README.rdoc` の削除 `README.md` の作成
 - [x] `turbolinks` 無効化(プロンプトで分岐)
 - [x] `bundle install`
+- [ ] `bullet`の設定
+- [ ] `kaminari`の設定
 
 ##### after_bundle内で
 
@@ -32,3 +34,4 @@ rails new sample -m [http://path/to/template]
 
 * `bootstrap` etc.. 追加
     * 初期化コマンドも`after_bundle`内でしたほうがよさげ
+* `--skip-bundle`が一切効かんがなんぞ。。。
