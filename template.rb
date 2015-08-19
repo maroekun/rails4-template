@@ -1,3 +1,7 @@
+require 'bundler'
+
+@app_name = app_name
+
 # pager
 gem 'kaminari'
 
@@ -77,6 +81,10 @@ if @turbolinks_off
 end
 
 # run "bundle install --path ./vendor/bundle"
+run "rm README.rdoc"
+create_file "README.md" do
+  "# Hello! #{@app_name} application"
+end
 
 # convert all erb file to haml
 # rake "haml:erb2haml"
