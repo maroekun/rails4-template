@@ -15,7 +15,7 @@ if @turbolinks_off
 end
 
 # pager
-gem 'kaminari'
+gem 'kaminari', '~> 0.16.3'
 
 # image uploader
 # gem 'CarrierWave'
@@ -60,29 +60,29 @@ gem_group :development do
   gem 'html2haml', '~> 2.0.0'
 
   # insert source_map for partial view
-  gem 'view_source_map'
+  gem 'view_source_map', '~> 0.1.0'
 
   # replace REPL tool from irb
-  gem 'pry'
-  gem 'pry-byebug'
-  gem 'pry-rails'
+  gem 'pry', '~> 0.10.1'
+  gem 'pry-byebug', '~> 3.2.0'
+  gem 'pry-rails', '~> 0.3.4'
 
-  gem 'better_errors'
-  gem 'binding_of_caller'
+  gem 'better_errors', '~> 2.1.1'
+  gem 'binding_of_caller', '~> 0.7.2'
 
   # no need assets log
-  gem 'quiet_assets'
+  gem 'quiet_assets', '~> 1.1.0'
 
   # profiling
-  gem 'rack-mini-profiler'
+  gem 'rack-mini-profiler', '~> 0.9.7'
 
   # detect N+1 problem
-  gem 'bullet'
+  gem 'bullet', '~> 4.14.7'
 
   # annotate model schema
-  gem 'annotate'
+  gem 'annotate', '~> 2.6.10'
 
-  gem 'awesome_print', require: 'ap'
+  gem 'awesome_print', '~> 1.6.1', require: 'ap'
 end
 
 gem_group :development, :test do
