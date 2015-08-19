@@ -69,8 +69,6 @@ gem_group :development, :test do
   gem 'brakeman', '~> 3.0.5', require: false
 end
 
-# copy_file sample
-# copy_file File.expand_path("hoge", File.dirname(__FILE__)), "hoge"
 
 @turbolinks_off = yes?("turbolinks off?[y/n]") ? true : false
 
@@ -93,4 +91,3 @@ run "rm README.rdoc"
 create_file "README.md" do
   "# Hello! #{@app_name} application"
 end
-
