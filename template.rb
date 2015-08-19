@@ -80,11 +80,17 @@ if @turbolinks_off
   gsub_file 'app/assets/javascripts/application.js', %r!^//=.+turbolinks\n!, ''
 end
 
-# run "bundle install --path ./vendor/bundle"
+Bundler.with_clean_env do
+  run "bundle install --path ./vendor/bundle --jobs=4"
+end
+
+after_bundle do
+  # convert all erb file to haml
+  rake "haml:erb2haml"
+end
+
 run "rm README.rdoc"
 create_file "README.md" do
   "# Hello! #{@app_name} application"
 end
 
-# convert all erb file to haml
-# rake "haml:erb2haml"
