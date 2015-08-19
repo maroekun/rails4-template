@@ -10,9 +10,16 @@ gem 'kaminari'
 # gem 'fog'
 # gem 'paperclip'
 
-# job queue
-# gem 'rescue'
-# gem 'sidekiq'
+@need_jq = yes?("need jobqueue gem? [y/n]")
+if @need_jq
+  case ask("choose a gem: resque[1] / sidekiq[2] or ELSE(skip)")
+  when 'resque', '1'
+    gem 'resque', '~> 1.25.2'
+  when 'sidekiq', '2'
+    gem 'sidekiq', '~> 3.4.2'
+  else
+  end
+end
 
 # configration
 # gem 'rails_config'
@@ -24,16 +31,18 @@ gem 'haml-rails', '~> 0.9.0'
 gem 'cells', '~> 4.0.2'
 
 # cron management
-# gem 'whenever'
+gem 'whenever', '~> 0.9.4'
 
 # authentication
-# gem 'devise'
+gem 'devise', '~> 3.5.2'
+gem 'devise_ldap_authenticatable', '~> 0.8.5'
 
 # decorator
 gem 'draper'
 
-# !!CAUTION!!
-# gem 'squeel'
+gem 'bootstrap-sass', '~> 3.3.5.1'
+gem 'bootswatch-sass', '~> 3.3.5'
+gem 'font-awesome-rails', '~> 4.4.0.0'
 
 gem_group :development do
   gem 'html2haml', '~> 2.0.0'
