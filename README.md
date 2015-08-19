@@ -31,7 +31,7 @@ rails new sample -m [http://path/to/template]
 ##### after_bundle内で
 
 - [x] `erb -> haml` 変換
-- [ ] `kaminari:config` 実行
+- [x] `kaminari:config` 実行
 
 ### memo
 

@@ -85,6 +85,7 @@ end
 after_bundle do
   # convert all erb file to haml
   rake "haml:erb2haml"
+  generate "kaminari:config"
 end
 
 run "rm README.rdoc"
