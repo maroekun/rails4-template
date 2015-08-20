@@ -12,9 +12,9 @@ rails new sample -m [http://path/to/template]
 
 ローカルに落としてきても、URL指定でもおk
 
-`mysql`を使うときは
+`mysql`使いたい、`test-unit`要らね な場合
 
-    rails new -d mysql # で指定すること
+    rails new -T -d mysql
 
 ## gemリスト
 
@@ -36,14 +36,17 @@ rails new sample -m [http://path/to/template]
   * `resque` `sidekiq`
   * 一応入れたけど微妙
   * Rails4.2から `ActiveJob` もあるので検討したいところ
+
 ## ToDo
 
+- [ ] 要らないgem削除
 - [x] gemの選定 Take. 1
-    - いっぱいいれた
+- [ ] gem追加 Take.2
 - [x] 用途をコメント入れる
 - [x] `README.rdoc` の削除 `README.md` の作成
 - [x] `turbolinks` 無効化(プロンプトで分岐)
 - [x] `bundle install`
+- [ ] `application.config`の変更
 
 ##### bundle installあとで
 
@@ -52,6 +55,8 @@ rails new sample -m [http://path/to/template]
 - [x] `wheneverize` 実行
 - [ ] `bootstrap-*`の設定
 - [x] `bullet`の設定
+- [ ] `g annotate:install`
+- [ ] `g rspec:install`
 
 ### memo
 
