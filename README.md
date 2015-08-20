@@ -47,13 +47,14 @@ rails new sample -m [http://path/to/template]
 - [x] `turbolinks` 無効化(プロンプトで分岐)
 - [x] `bundle install`
 - [ ] `application.config`の変更
+  - helper 生成いらん
+- [ ] `bootstrap-*`の設定
 
 ##### bundle installあとで
 
 - [x] `erb -> haml` 変換
 - [x] `kaminari:config` 実行
 - [x] `wheneverize` 実行
-- [ ] `bootstrap-*`の設定
 - [x] `bullet`の設定
 - [x] `g annotate:install`
 - [x] `g rspec:install`
