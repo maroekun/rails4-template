@@ -14,81 +14,80 @@ if @turbolinks_off
   gsub_file 'app/assets/javascripts/application.js', %r!^//=.+turbolinks\n!, ''
 end
 
-# pager
-gem 'kaminari', '~> 0.16.3'
-
-# image uploader
-# gem 'CarrierWave'
-# gem 'fog'
-# gem 'paperclip'
-
 @need_jq = yes?("need jobqueue gem? [y/n]")
 if @need_jq
-  case ask("choose a gem: resque[1] / sidekiq[2] or ELSE(skip)")
+  @worker = case ask("choose a gem: resque[1] / sidekiq[2] or ELSE(skip)")
   when 'resque', '1'
-    gem 'resque', '~> 1.25.2'
+    %q!gem 'resque', '~> 1.25.2'!
   when 'sidekiq', '2'
-    gem 'sidekiq', '~> 3.4.2'
+    %q!gem 'sidekiq', '~> 3.4.2'!
   else
+    nil
   end
 end
 
-# configration
-# gem 'rails_config'
-# gem 'settings_logic'
-# gem 'global'
+append_file 'Gemfile', <<GEMS
+# * * * * * * * * * * * * * * * * * * *
+#   Add Gems from ApplicationTemplate
+# * * * * * * * * * * * * * * * * * * *
 
-# template
-gem 'haml-rails', '~> 0.9.0'
-gem 'cells', '~> 4.0.2'
+#{ %(# JobQueue) << "\n" << @worker << "\n" if @worker }
+# Pagination
+gem 'kaminari', '~> 0.16.3'
 
-# cron management
-gem 'whenever', '~> 0.9.4'
-
-# authentication
-gem 'devise', '~> 3.5.2'
-gem 'devise_ldap_authenticatable', '~> 0.8.5'
-
-# decorator
-gem 'draper'
-
+# bootstarp & font-awesome
 gem 'bootstrap-sass', '~> 3.3.5.1'
 gem 'bootswatch-sass', '~> 3.3.5'
 gem 'font-awesome-rails', '~> 4.4.0.0'
 
-gem_group :development do
-  gem 'html2haml', '~> 2.0.0'
+# Use Haml template
+gem 'haml-rails', '~> 0.9.0'
 
-  # insert source_map for partial view
+# For devide logic from controllers and views
+gem 'cells', '~> 4.0.2'
+
+# Cron management
+gem 'whenever', '~> 0.9.4'
+
+# Presentor base
+gem 'draper', '~> 2.1.0'
+
+group :development do
+  # Detect N+1 problem
+  gem 'bullet', '~> 4.14.7'
+
+  # Security scanner
+  gem 'brakeman', '~> 3.0.5', require: false
+
+  # Profiling
+  gem 'rack-mini-profiler', '~> 0.9.7'
+
+  # Insert partial-view's source_map
   gem 'view_source_map', '~> 0.1.0'
 
-  # replace REPL tool from irb
+  # Cool error page
+  gem 'better_errors', '~> 2.1.1'
+  gem 'binding_of_caller', '~> 0.7.2'
+
+  # Replace irb with pry
   gem 'pry', '~> 0.10.1'
   gem 'pry-byebug', '~> 3.2.0'
   gem 'pry-rails', '~> 0.3.4'
 
-  gem 'better_errors', '~> 2.1.1'
-  gem 'binding_of_caller', '~> 0.7.2'
-
-  # no need assets log
-  gem 'quiet_assets', '~> 1.1.0'
-
-  # profiling
-  gem 'rack-mini-profiler', '~> 0.9.7'
-
-  # detect N+1 problem
-  gem 'bullet', '~> 4.14.7'
-
-  # annotate model schema
+  # Insert annotator
   gem 'annotate', '~> 2.6.10'
 
+  # Clean rails log
+  gem 'quiet_assets', '~> 1.1.0'
+
+  # Beautify print
   gem 'awesome_print', '~> 1.6.1', require: 'ap'
 end
 
-gem_group :development, :test do
-  # security scanner
-  gem 'brakeman', '~> 3.0.5', require: false
+group :development, :test do
+  gem 'rspec-rails'
 end
+GEMS
 
 Bundler.with_clean_env do
   run "bundle install --path ./vendor/bundle --jobs=4"
