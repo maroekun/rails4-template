@@ -98,6 +98,8 @@ rake "haml:erb2haml"
 
 # cerate kaminari configration
 generate "kaminari:config"
+generate "rspec:install"
+generate "annotate:install"
 
 Bundler.with_clean_env do
   run 'bundle exec wheneverize .'

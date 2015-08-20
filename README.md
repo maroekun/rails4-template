@@ -55,8 +55,8 @@ rails new sample -m [http://path/to/template]
 - [x] `wheneverize` 実行
 - [ ] `bootstrap-*`の設定
 - [x] `bullet`の設定
-- [ ] `g annotate:install`
-- [ ] `g rspec:install`
+- [x] `g annotate:install`
+- [x] `g rspec:install`
 
 ### memo
 
