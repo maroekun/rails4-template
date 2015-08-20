@@ -31,7 +31,7 @@ rails new sample -m [http://path/to/template]
 - [x] `kaminari:config` 実行
 - [x] `wheneverize` 実行
 - [ ] `bootstrap-*`の設定
-- [ ] `bullet`の設定
+- [x] `bullet`の設定
 
 ### memo
 

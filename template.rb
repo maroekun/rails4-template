@@ -104,5 +104,16 @@ Bundler.with_clean_env do
   run 'bundle exec wheneverize .'
 end
 
+insert_into_file 'config/environments/development.rb', %(
+  # Bullet configuration
+  config.after_initialize do
+    Bullet.enable  = true
+    Bullet.alert   = true
+    Bullet.console = true
+    Bullet.bullet_logger = true
+    Bullet.rails_logger  = true
+  end
+), after: 'Rails.application.configure do'
+
 after_bundle do
 end
