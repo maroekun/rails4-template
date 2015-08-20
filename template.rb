@@ -100,5 +100,9 @@ rake "haml:erb2haml"
 # cerate kaminari configration
 generate "kaminari:config"
 
+Bundler.with_clean_env do
+  run 'bundle exec wheneverize .'
+end
+
 after_bundle do
 end
