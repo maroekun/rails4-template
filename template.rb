@@ -89,6 +89,9 @@ group :development, :test do
 end
 GEMS
 
+# Remove `byebug`
+gsub_file 'Gemfile', /^\s+(# Call|gem) 'byebug'.*\n{1,2}/, ''
+
 Bundler.with_clean_env do
   run "bundle install --path ./vendor/bundle --jobs=4"
 end
