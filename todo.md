@@ -1,9 +1,8 @@
 # ToDo List
 
-## over view
-
 - [ ] 要らないgem削除
 - [ ] spec 設定
+- [ ] bootstrap layout
 - [x] gemの選定 Take.1
 - [ ] gemの選定 Take.2
 - [x] 用途をコメント入れる
@@ -35,11 +34,11 @@
   * API作るなら必要
 * 設定系
   * `rails_config` `settings_logic` `global`
-  * 好きに選べばいい系
+  * 好きに選べばいい
 * 画像アップロード
   * `CarrierWave` `paperclip` `fog`
   * S3使うなら fog は便利
 * JobWorker系
   * `resque` `sidekiq`
   * 一応入れたけど微妙
-  * Rails4.2から `ActiveJob` もあるので検討したいところ
+  * Rails4.2から `ActiveJob` もあるので検討
