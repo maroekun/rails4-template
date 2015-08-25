@@ -119,5 +119,17 @@ insert_into_file 'config/environments/development.rb', %(
   end
 ), after: 'Rails.application.configure do'
 
+remove_file 'app/assets/stylesheets/application.css'
+
+create_file 'app/assets/stylesheets/application.css.scss', <<SCSS
+// "bootstrap-srockets" must be imported before "bootstrap" and "bootstrap/variables"
+@import "bootstrap-sprockets";
+@import "bootstrap";
+@import "font-awesome";
+SCSS
+
+insert_into_file 'app/assets/javascripts/application.js', %(
+//= require bootstrap-sprockets), after: '//= require jquery_ujs'
+
 after_bundle do
 end

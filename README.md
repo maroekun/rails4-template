@@ -48,7 +48,7 @@ rails new sample -m [http://path/to/template]
 - [x] `bundle install`
 - [ ] `application.config`の変更
   - helper 生成いらん
-- [ ] `bootstrap-*`の設定
+- [x] `bootstrap-*`の設定
 
 ##### bundle installあとで
 
