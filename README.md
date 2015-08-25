@@ -62,6 +62,3 @@ rails new sample -m [http://path/to/template]
 
 ### memo
 
-* `bootstrap` etc.. 追加
-    * 初期化コマンドも`after_bundle`内でしたほうがよさげ
-* `--skip-bundle`が一切効かんがなんぞ。。。
