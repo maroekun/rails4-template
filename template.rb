@@ -108,6 +108,14 @@ Bundler.with_clean_env do
   run 'bundle exec wheneverize .'
 end
 
+application do
+%q!config.generators do |g|
+      g.helper false
+      g.helper_spec false
+    end
+!
+end
+
 insert_into_file 'config/environments/development.rb', %(
   # Bullet configuration
   config.after_initialize do

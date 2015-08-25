@@ -46,9 +46,10 @@ rails new sample -m [http://path/to/template]
 - [x] `README.rdoc` の削除 `README.md` の作成
 - [x] `turbolinks` 無効化(プロンプトで分岐)
 - [x] `bundle install`
-- [ ] `application.config`の変更
+- [x] `application.config`の変更
   - helper 生成いらん
 - [x] `bootstrap-*`の設定
+- [ ] `spec_helper` 編集
 
 ##### bundle installあとで
 
