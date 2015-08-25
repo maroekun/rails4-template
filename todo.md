@@ -3,6 +3,7 @@
 ## over view
 
 - [ ] 要らないgem削除
+- [ ] spec 設定
 - [x] gemの選定 Take.1
 - [ ] gemの選定 Take.2
 - [x] 用途をコメント入れる
@@ -12,7 +13,6 @@
 - [x] `application.config`の変更
   - helper 生成いらない
 - [x] `bootstrap-*`の設定
-- [ ] `spec_helper` 編集
 
 ## bundle installあとで
 

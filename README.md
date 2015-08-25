@@ -1,18 +1,22 @@
-# Railsプロジェクト雛形@たたき台
+# Rails application template
 
-とりあえず最低限のことをする子を作る
+Rilas4 application template.
+
+You can choose following options.
+
+* Turn turblinks on/off
+* JobQueue(resque/sidekiq)
 
 ## How2Use
 
 ```
-rails new sample -m [path/to/template]
-# or
-rails new sample -m [http://path/to/template]
+rails new sample -T -d mysql -m https://raw.github.com/maroekun/rails4-template/master/template.rb
 ```
 
-ローカルに落としてきても、URL指定でもおk
+## Contributing
 
-`mysql`使いたい、`test-unit`要らね な場合
-
-    rails new -T -d mysql
-
+1. Fork it
+2. Create your feature branch (`git checkout -b my-new-feature`)
+3. Commit your changes (`git commit -am 'Add some feature'`)
+4. Push to the branch (`git push origin my-new-feature`)
+5. Create new Pull Request
