@@ -130,9 +130,7 @@ insert_into_file 'config/environments/development.rb', %(
 remove_file 'app/assets/stylesheets/application.css'
 
 create_file 'app/assets/stylesheets/application.css.scss', <<SCSS
-// "bootstrap-srockets" must be imported before "bootstrap" and "bootstrap/variables"
-@import "bootstrap-sprockets";
-@import "bootstrap";
+@import "bootstrap-cosmo";
 @import "font-awesome";
 SCSS
 
