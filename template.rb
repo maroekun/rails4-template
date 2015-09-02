@@ -82,6 +82,9 @@ group :development do
 
   # Beautify print
   gem 'awesome_print', '~> 1.6.1', require: 'ap'
+
+  # static code analysis
+  gem 'rubocop', require: false
 end
 
 group :development, :test do
